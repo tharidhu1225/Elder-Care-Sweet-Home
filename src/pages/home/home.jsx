@@ -35,34 +35,6 @@ export default function Home() {
         </motion.p>
       </div>
 
-      {/* Donation Section */}
-      <div className="py-16 px-6 text-center bg-gray-900 text-white">
-        <motion.h2
-          className="text-3xl sm:text-4xl font-bold"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          Support Our Cause 💖
-        </motion.h2>
-        <motion.p
-          className="mt-4 max-w-lg sm:max-w-3xl mx-auto text-base sm:text-lg"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          Your donation helps us provide sweets and support elderly communities. Together, we can make a significant difference.
-        </motion.p>
-        <motion.button
-          className="mt-6 px-6 py-3 bg-[#f59e0b] text-white text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:bg-[#d97706] transition"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-        >
-          <FaDonate className="inline mr-2" /> Donate Now
-        </motion.button>
-      </div>
-
       {/* Testimonials Section */}
       <div className="py-5 px-6 max-w-6xl mx-auto text-center">
         <motion.h2
@@ -88,7 +60,7 @@ export default function Home() {
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
             <FaInstagram size={30} className="text-white hover:text-[#E1306C]" />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <a href="http://Wa.me/+94743597009" target="_blank" rel="noopener noreferrer">
             <IoLogoWhatsapp size={30} className="text-white hover:text-[#00ee14]" />
           </a>
         </div>
@@ -97,19 +69,19 @@ export default function Home() {
         <div className="mt-6">
         <p className="flex items-center justify-center gap-2">
             <FaPhoneAlt size={20} />
-            Phone 1: <a href="tel:+94702675577" className="text-[#43d939] hover:text-[#34c25c]">Update Soon</a>
+            Phone 1: <a href="tel:0112163580" className="text-[#43d939] hover:text-[#34c25c]">0112163580</a>
           </p>
           <p className="flex items-center justify-center gap-2">
             <FaPhoneAlt size={20} />
-            Phone 2: <a href="tel:+94112801675" className="text-[#43d939] hover:text-[#34c25c]">Update Soon</a>
+            Phone 2: <a href="tel:+94743597009" className="text-[#43d939] hover:text-[#34c25c]">+94743597009</a>
           </p>
           <p className="flex items-center justify-center gap-2">
             <FaMapMarkerAlt className="text-red-600" size={20} />
-            Address: Baththaramulla Main Branch
+            Address: No : 980/3 A,Udawaththa Road,Malabe
           </p>
           <p className="flex items-center justify-center gap-2">
             <MdEmail size={20} />
-            Email: <a href="mailto:info@suwaarana.com" className="text-[#43d939] hover:text-[#34c25c]">Update Soon</a>
+            Email: <a href="mailto:colombosweethome@gmail.com" className="text-[#43d939] hover:text-[#34c25c]">colombosweethome@gmail.com</a>
           </p>
         </div>
       </div>

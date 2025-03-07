@@ -18,7 +18,7 @@ export default function Header() {
   };
 
   const handleWhatsappClick = () => {
-    window.open("https://wa.me/+94761918718");
+    window.open("http://Wa.me/+94743597009");
   };
 
   return (
@@ -33,12 +33,12 @@ export default function Header() {
             <div className="flex items-center text-sm text-white gap-2">
               <FaPhoneVolume size={16} />
               <span>Phone:</span>
-              <span className="text-[#c3e0a0]">+0761918718</span>
+              <a href="tel:+94743597009" className="text-[#43d939] hover:text-[#34c25c]">+94743597009</a>
             </div>
             <div className="flex items-center text-sm text-white gap-2">
               <MdAttachEmail size={16} />
               <span>Email:</span>
-              <span className="text-[#c3e0a0]">info@eldercaresweethome.com</span>
+              <a href="mailto:colombosweethome@gmail.com" className="text-[#43d939] hover:text-[#34c25c]">colombosweethome@gmail.com</a>
             </div>
           </div>
 
