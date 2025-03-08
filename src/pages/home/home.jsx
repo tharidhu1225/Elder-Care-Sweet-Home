@@ -12,13 +12,30 @@ export default function Home() {
     "https://srvjdzszofbozrnebxmh.supabase.co/storage/v1/object/public/images//1741359619822WhatsApp%20Image%202025-03-07%20at%2019.27.34_7e85e3cd.jpg.jpg",
     "https://srvjdzszofbozrnebxmh.supabase.co/storage/v1/object/public/images//1741359673206WhatsApp%20Image%202025-03-07%20at%2019.27.51_9e51d0f3.jpg.jpg",
   ];
-  
+
+  const texts = [
+    "Elder Care Sweet Home,",
+    "Elder Care Sweet Home..",
+    "Elder Care Sweet Home.",
+    "Elder Care Sweet Home..",
+    "Elder Care Sweet Home.",
+  ];
+
+  const subtexts = [
+    "Baththaramulla Main Branch.",
+    "Kegalle Branch.",
+    "Kaduwela Branch.",
+    "Kegalle Branch.",
+    "Kaduwela Branch.",
+  ];
+
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 5000); // Change image every 5 seconds
+    }, 5500); // Change image and text every 5 seconds
+
     return () => clearInterval(interval);
   }, []);
 
@@ -38,23 +55,32 @@ export default function Home() {
           />
         </AnimatePresence>
 
-        <motion.h1
-          className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-        >
-          Elder Care Sweet Home
-        </motion.h1>
+        {/* Animated Swiping Text */}
+        <AnimatePresence mode="wait">
+          <motion.h1
+            key={texts[index]}
+            className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg"
+            initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
+            animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+            exit={{ clipPath: "inset(0% 100% 0% 0%)" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+          >
+            {texts[index]}
+          </motion.h1>
+        </AnimatePresence>
 
-        <motion.p
-          className="text-sm sm:text-lg  md:text-2xl font-semibold relative text-white drop-shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-        >
-         We provide the best care for your loved ones.
-        </motion.p>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={subtexts[index]}
+            className="text-sm sm:text-lg md:text-2xl font-semibold relative text-white drop-shadow-lg mt-2"
+            initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
+            animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+            exit={{ clipPath: "inset(0% 100% 0% 0%)" }}
+            transition={{ duration: 1.5, delay: 0.3, ease: "easeInOut" }}
+          >
+            {subtexts[index]}
+          </motion.p>
+        </AnimatePresence>
       </div>
 
       {/* Footer */}
