@@ -53,7 +53,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 2, ease: "easeInOut" }}
         >
-          Bringing sweetness and joy to every generation. Your support makes a difference in elderly care.
+         We provide the best care for your loved ones.
         </motion.p>
       </div>
 

@@ -17,6 +17,7 @@ function App() {
 
   return (
     <div className='bg-primary'>
+      
      <BrowserRouter>
       <Toaster position='top-right'/>
       <GoogleOAuthProvider clientId='474190677487-al5kcu80p13msbvmmf8tu52d8la5bgie.apps.googleusercontent.com'>
