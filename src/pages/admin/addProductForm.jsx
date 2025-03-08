@@ -1,20 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import uploadMediaToSupabase from "../../utils/mediaUpload";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-
 export default function AddProductForm() {
   const [productId, setProductId] = useState("");
+  const [postNumber, setPostNumber] = useState(1);
   const [postName, setPostName] = useState("");
   const [imageFiles, setImageFiles] = useState([]);
   const [description, setDescription] = useState("");
+  const [dateTime, setDateTime] = useState("");
   const navigate = useNavigate();
 
+  // Load post number when the component mounts
+  useEffect(() => {
+    const storedPostNumber = localStorage.getItem("lastPostNumber");
+    const nextPostNumber = storedPostNumber ? parseInt(storedPostNumber) + 1 : 1;
+    
+    setPostNumber(nextPostNumber);
+    setProductId(`POST-${nextPostNumber}`);
+    setDateTime(new Date().toLocaleString());
+  }, []);
+
   async function handleSubmit() {
-    if (!productId || !postName || !imageFiles.length || !description) {
-      toast.error("All fields are required!");
+    if (!postName | !description) {
+      toast.error("Event Name & Description fields are required!");
       return;
     }
 
@@ -22,10 +33,11 @@ export default function AddProductForm() {
     const imageUrls = await Promise.all(promisesArray);
 
     const product = {
-      productId : productId,
-      postName : postName,
+      productId,
+      postName,
       Images: imageUrls,
-      description : description
+      description,
+      dateTime,
     };
 
     const token = localStorage.getItem("token");
@@ -39,6 +51,10 @@ export default function AddProductForm() {
           },
         }
       );
+
+      // Save new post number in localStorage
+      localStorage.setItem("lastPostNumber", postNumber.toString());
+
       navigate("/TN/products");
       toast.success("Successfully Posted!");
     } catch (err) {
@@ -53,15 +69,27 @@ export default function AddProductForm() {
           Add Post Form
         </h1>
         <div className="grid gap-4">
-          {/* Product ID */}
+
+
+          {/* Product ID (Read-Only) */}
           <div className="flex flex-col">
-            <label className="text-gray-700 text-lg font-medium">Post Number</label>
+            <label className="text-gray-700 text-lg font-medium">Post ID</label>
             <input
               type="text"
-              className="w-full px-4 py-2 border border-gray-300 rounded-xl text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              placeholder="Enter Post ID"
+              className="w-full px-4 py-2 border border-gray-300 rounded-xl text-gray-800 bg-gray-100 cursor-not-allowed"
               value={productId}
-              onChange={(e) => setProductId(e.target.value)}
+              readOnly
+            />
+          </div>
+
+          {/* Date & Time (Read-Only) */}
+          <div className="flex flex-col">
+            <label className="text-gray-700 text-lg font-medium">Date & Time</label>
+            <input
+              type="text"
+              className="w-full px-4 py-2 border border-gray-300 rounded-xl text-gray-800 bg-gray-100 cursor-not-allowed"
+              value={dateTime}
+              readOnly
             />
           </div>
 

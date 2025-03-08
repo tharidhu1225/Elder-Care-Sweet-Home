@@ -1,70 +1,55 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 import ImageSlider from "../../components/imgeSlider";
 
+export default function ProductOverview() {
+  const { id: productId } = useParams();
+  const [product, setProduct] = useState(null);
+  const [status, setStatus] = useState("loading");
 
-
-export default function ProductOverview(){
-
-   const params = useParams();
-   const productId = params.id;
-   const [product, setProduct] = useState(null)
-   const [status, setStatus] = useState("loading")
-  
-   
-   useEffect(
-     ()=>{
-      axios.get(import.meta.env.VITE_BACKEND_URL+"/api/products/"+productId).then((res)=>{
-        console.log(res.data)
-
-        if(res.data == null){
-            setStatus("not-found")
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/${productId}`)
+      .then((res) => {
+        if (!res.data) {
+          setStatus("not-found");
+        } else {
+          setProduct(res.data);
+          setStatus("found");
         }
+      })
+      .catch(() => setStatus("not-found"));
+  }, [productId]);
 
-        if(res.data != null){
-            setProduct(res.data)
-             setStatus("found")
-        }
-     })
-    }
-    ,[])
-
-
-    return(
-        <div className="w-full h-[calc(100vh-100px)]">
-            {
-                status == "loading"&&(
-                    <div className="w-full h-full flex items-center justify-center">
-                        <div className="animate-spin rounded-full h-32 w-32 border-2 border-blue-500 border-b-blue-900 border-b-4">
-
-                        </div>
-                    </div>
-                )
-            }
-            {
-                status == "not-found"&&(
-                   <h1>404 Not Found</h1>
-                )
-            }
-            {
-                status == "found"&&(
-                    <div className="w-full h-full flex flex-col lg:flex-row items-center justify-center">
-                       <div className="w-[100%] lg:w-[35%] h-full">
-                       <h1 className="flex text-3xl font-bold text-gray-800 lg:hidden">{product.postName}</h1>
-                       <div className="w-[100%] lg:w-[80%] lg:h-full">
-                       <ImageSlider Images={product.Images} />
-                       </div>
-                       </div>
-                       <div className="w-[65%] h-full p-4">
-                        <h1 className="text-3xl font-bold text-gray-800 hidden lg:block">{product.postName}</h1>
-                        <p className="flex text-lg text-gray-600 line-clamp-3">{product.description}</p>
-                       </div>
-
-                    </div>
-                )
-            }
+  return (
+    <div className="w-full min-h-screen flex items-center justify-center p-4">
+      {status === "loading" && (
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-500 border-b-blue-900"></div>
         </div>
-    )
+      )}
+      {status === "not-found" && (
+        <div className="w-full text-center">
+          <h1 className="text-2xl font-semibold text-gray-700">404 - Product Not Found</h1>
+        </div>
+      )}
+      {status === "found" && product && (
+        <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-6">
+          {/* Image Section */}
+          <div className="w-full lg:w-1/2 flex flex-col items-center">
+            <h1 className="text-2xl font-bold text-gray-800 mb-4 lg:hidden">{product.postName}</h1>
+            <div className="w-full max-w-md lg:max-w-lg">
+              <ImageSlider Images={product.Images} />
+            </div>
+          </div>
+          
+          {/* Details Section */}
+          <div className="w-full lg:w-1/2 p-4 flex flex-col gap-4">
+            <h1 className="text-3xl font-bold text-gray-800 hidden lg:block">{product.postName}</h1>
+            <p className="text-lg text-gray-600 leading-relaxed">{product.description}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
-

@@ -41,9 +41,11 @@ export default function AdminProductsPage() {
                   Post ID
                 </th>
                 <th className="text-left px-6 py-4 border-b text-gray-700 font-medium">
+                  Date & time
+                </th>
+                <th className="text-left px-6 py-4 border-b text-gray-700 font-medium">
                   Event Name
                 </th>
-                
                 <th className="text-left px-6 py-4 border-b text-gray-700 font-medium">
                   Description
                 </th>
@@ -62,6 +64,9 @@ export default function AdminProductsPage() {
                 >
                   <td className="px-6 py-4 border-b text-gray-600">
                     {product.productId}
+                  </td>
+                  <td className="px-6 py-4 border-b text-gray-600">
+                    {product.dateTime}
                   </td>
                   <td className="px-6 py-4 border-b text-gray-600">
                     {product.postName}
