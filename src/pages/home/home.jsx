@@ -14,11 +14,11 @@ export default function Home() {
   ];
 
   const texts = [
-    "Elder Care Sweet Home,",
-    "Elder Care Sweet Home..",
-    "Elder Care Sweet Home.",
-    "Elder Care Sweet Home..",
-    "Elder Care Sweet Home.",
+    "Elder Care Sweet Home",
+    "Elder Care Sweet Home",
+    "Elder Care Sweet Home",
+    "Elder Care Sweet Home",
+    "Elder Care Sweet Home",
   ];
 
   const subtexts = [
