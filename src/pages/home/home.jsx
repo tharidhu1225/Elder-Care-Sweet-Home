@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaFacebook, FaInstagram, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaPhoneAlt, FaMapMarkerAlt, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 
@@ -11,6 +11,7 @@ export default function Home() {
     "https://srvjdzszofbozrnebxmh.supabase.co/storage/v1/object/public/images//1741359673206WhatsApp%20Image%202025-03-07%20at%2019.27.51_c9b8984c.jpg.jpg",
     "https://srvjdzszofbozrnebxmh.supabase.co/storage/v1/object/public/images//1741359619822WhatsApp%20Image%202025-03-07%20at%2019.27.34_7e85e3cd.jpg.jpg",
     "https://srvjdzszofbozrnebxmh.supabase.co/storage/v1/object/public/images//1741359673206WhatsApp%20Image%202025-03-07%20at%2019.27.51_9e51d0f3.jpg.jpg",
+    "https://srvjdzszofbozrnebxmh.supabase.co/storage/v1/object/public/images//1741359563193WhatsApp%20Image%202025-03-07%20at%2019.28.07_c808b63b.jpg.jpg"
   ];
 
   const texts = [
@@ -19,6 +20,7 @@ export default function Home() {
     "Elder Care Sweet Home",
     "Elder Care Sweet Home",
     "Elder Care Sweet Home",
+    "Elder Care Sweet Home"
   ];
 
   const subtexts = [
@@ -27,9 +29,22 @@ export default function Home() {
     "Kaduwela Branch.",
     "Kegalle Branch.",
     "Kaduwela Branch.",
+    "Baththaramulla Main Branch."
   ];
 
   const [index, setIndex] = useState(0);
+
+  const handleFacebookClick = () => {
+    window.open("https://www.facebook.com/share/1AzghTXJQ7/?mibextid=wwXIfr");
+  };
+
+  const handleInstagramClick = () => {
+    window.open("https://www.instagram.com/");
+  };
+
+  const handleWhatsappClick = () => {
+    window.open("http://Wa.me/+94743597009");
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -83,43 +98,57 @@ export default function Home() {
         </AnimatePresence>
       </div>
 
-      {/* Footer */}
-      <div className="bg-gray-900 text-white py-6 sm:py-8 text-center text-sm sm:text-base">
-        <p>&copy; 2025 Elder Care Sweet Home. All rights reserved.</p>
-
-        {/* Social Media Links */}
-        <div className="flex justify-center gap-4 mt-4">
-          <a href="https://www.facebook.com/share/1AzghTXJQ7/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-            <FaFacebook size={30} className="text-white hover:text-[#3b5998]" />
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <FaInstagram size={30} className="text-white hover:text-[#E1306C]" />
-          </a>
-          <a href="http://Wa.me/+94743597009" target="_blank" rel="noopener noreferrer">
-            <IoLogoWhatsapp size={30} className="text-white hover:text-[#00ee14]" />
-          </a>
-        </div>
-
+      <footer className="bg-gray-900 text-white py-8 mt-10">
+      <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center md:text-left">
         {/* Contact Info */}
-        <div className="mt-6 space-y-2">
-          <p className="flex items-center justify-center gap-2 text-sm sm:text-base">
+        <div className="space-y-3">
+          <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+          <p className="flex items-center justify-center md:justify-start gap-2 text-sm">
             <FaPhoneAlt size={18} />
-            <span>Phone 1: <a href="tel:0112163580" className="text-[#43d939] hover:text-[#34c25c]">0112163580</a></span>
+            <span>Phone 1: <a href="tel:0112163580" className="text-green-400 hover:text-green-500">0112163580</a></span>
           </p>
-          <p className="flex items-center justify-center gap-2 text-sm sm:text-base">
+          <p className="flex items-center justify-center md:justify-start gap-2 text-sm">
             <FaPhoneAlt size={18} />
-            <span>Phone 2: <a href="tel:+94743597009" className="text-[#43d939] hover:text-[#34c25c]">+94743597009</a></span>
+            <span>Phone 2: <a href="tel:+94743597009" className="text-green-400 hover:text-green-500">+94743597009</a></span>
           </p>
-          <p className="flex items-center justify-center gap-2 text-sm sm:text-base">
-            <FaMapMarkerAlt className="text-red-600" size={18} />
-            <span>Address: No : 980/3 A, Udawaththa Road, Malabe</span>
+          <p className="flex items-center justify-center md:justify-start gap-2 text-sm">
+            <FaMapMarkerAlt className="text-red-500" size={18} />
+            <span>No: 980/3 A, Udawaththa Road, Malabe</span>
           </p>
-          <p className="flex items-center justify-center gap-2 text-sm sm:text-base">
+          <p className="flex items-center justify-center md:justify-start gap-2 text-sm">
             <MdEmail size={18} />
-            <span>Email: <a href="mailto:colombosweethome@gmail.com" className="text-[#43d939] hover:text-[#34c25c]">colombosweethome@gmail.com</a></span>
+            <span>Email: <a href="mailto:colombosweethome@gmail.com" className="text-green-400 hover:text-green-500">colombosweethome@gmail.com</a></span>
           </p>
+        </div>
+        
+        {/* Quick Links */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul className="space-y-2">
+            <li><a href="/" className="hover:text-green-400">Home</a></li>
+            <li><a href="/services" className="hover:text-green-400">Our Services</a></li>
+            <li><a href="/gallery" className="hover:text-green-400">Gellery</a></li>
+            <li><a href="/contact" className="hover:text-green-400">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        {/* Social Media */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+          <div className="flex justify-center md:justify-start gap-4">
+            <FaFacebookF size={20} className="text-blue-500 cursor-pointer" onClick={handleFacebookClick} />
+            <FaInstagram size={20} className="text-pink-500 cursor-pointer" onClick={handleInstagramClick} />
+            <FaWhatsapp size={20} className="text-green-400 cursor-pointer hover:text-gray-300" onClick={handleWhatsappClick} />
+          </div>
         </div>
       </div>
-    </div>
+      
+      {/* Copyright */}
+      <div className="text-center text-gray-400 text-sm mt-6 border-t border-gray-700 pt-4">
+        &copy; {new Date().getFullYear()} Elder Care Sweet Home. All rights reserved.
+      </div>
+    </footer>
+      </div>
+    
   );
 }

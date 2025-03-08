@@ -73,12 +73,11 @@ export default function AddProductForm() {
 
           {/* Product ID (Read-Only) */}
           <div className="flex flex-col">
-            <label className="text-gray-700 text-lg font-medium">Post ID</label>
             <input
               type="text"
               className="w-full px-4 py-2 border border-gray-300 rounded-xl text-gray-800 bg-gray-100 cursor-not-allowed"
               value={productId}
-              readOnly
+              hidden
             />
           </div>
 

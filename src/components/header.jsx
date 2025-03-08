@@ -68,7 +68,7 @@ export default function Header() {
         <nav className="hidden lg:flex space-x-8">
           <Link to="/" className="text-white font-bold text-lg hover:text-green-300 hover:border-b-5 border-b-[#54f96c]">Home</Link>
           <Link to="/services" className="text-white font-bold text-lg hover:text-green-300 hover:border-b-5 border-b-[#54f96c]">Our Services</Link>
-          <Link to="/gallery" className="text-white font-bold text-lg hover:text-green-300 hover:border-b-5 border-b-[#54f96c]">Gellery</Link>
+          <Link to="/gallery" className="text-white font-bold text-lg hover:text-green-300 hover:border-b-5 border-b-[#54f96c]">Gallery</Link>
           <Link to="/places" className="text-white font-bold text-lg hover:text-green-300 hover:border-b-5 border-b-[#54f96c]">Places</Link>
           <Link to="/contact" className="text-white font-bold text-lg hover:text-green-300 hover:border-b-5 border-b-[#54f96c]">Contact Us</Link>
         </nav>

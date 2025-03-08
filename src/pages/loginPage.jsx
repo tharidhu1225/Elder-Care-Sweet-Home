@@ -35,7 +35,7 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="w-full max-w-md p-8 bg-gray-800 rounded-lg shadow-lg">
         <h2 className="mb-6 text-3xl font-bold text-center text-white">
-          Elder Care Sweets
+          Elder Care Sweet Home
         </h2>
         <form>
           {/* Email Input */}
