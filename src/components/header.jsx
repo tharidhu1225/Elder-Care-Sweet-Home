@@ -10,7 +10,7 @@ export default function Header() {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
 
   const handleFacebookClick = () => {
-    window.open("https://www.facebook.com/");
+    window.open("https://www.facebook.com/share/1AzghTXJQ7/?mibextid=wwXIfr");
   };
 
   const handleInstagramClick = () => {

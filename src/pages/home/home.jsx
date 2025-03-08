@@ -63,7 +63,7 @@ export default function Home() {
 
         {/* Social Media Links */}
         <div className="flex justify-center gap-4 mt-4">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/share/1AzghTXJQ7/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
             <FaFacebook size={30} className="text-white hover:text-[#3b5998]" />
           </a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
