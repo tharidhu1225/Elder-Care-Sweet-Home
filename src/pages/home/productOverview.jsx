@@ -25,8 +25,12 @@ export default function ProductOverview() {
     <div className="w-full min-h-screen flex items-center justify-center p-4">
       {status === "loading" && (
         <div className="w-full h-full flex items-center justify-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-500 border-b-blue-900"></div>
+        <div className="flex space-x-2">
+          <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+          <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+          <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce"></div>
         </div>
+      </div>
       )}
       {status === "not-found" && (
         <div className="w-full text-center">

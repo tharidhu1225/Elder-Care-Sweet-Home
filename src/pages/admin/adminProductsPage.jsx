@@ -30,7 +30,7 @@ export default function AdminProductsPage() {
 
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-md p-8">
         <h1 className="text-2xl font-bold text-gray-800 mb-6">
-          Admin Prosts Page
+          Add Post Page
         </h1>
         {
           productsLoaded?<div className="overflow-x-auto">
@@ -88,7 +88,7 @@ export default function AdminProductsPage() {
                           },
                         }).then((res) => {
                           console.log(res.data);
-                          toast.success("Product deleted successfully");
+                          toast.success("Post deleted successfully");
                           setProductsLoaded(false);
                         });
                   
