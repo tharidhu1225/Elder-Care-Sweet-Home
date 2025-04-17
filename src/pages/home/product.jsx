@@ -53,7 +53,7 @@ export default function ProductPage(){
                     }
     
                   ).catch(
-                    (err)=> toast.error("Faile to fetch products")
+                    (err)=> toast.error("Faile to fetch Post")
                   )
             }
         }
